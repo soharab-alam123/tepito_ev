@@ -13,24 +13,26 @@ export default function SpecsModal({ isOpen, onClose, scooter }) {
 
   const fullSpecs = {
     "tepito-one": {
-      tag: "Urban Commuter",
-      price: "₹ 69,999*",
+      tag: "⚡ No License Required • Urban Commuter",
+      price: "₹ 54,999*",
       range: "85 km (Certified)",
-      speed: "55 km/h",
-      motor: "1.8 kW Peak BLDC Hub Motor",
-      battery: "1.9 kWh Portable Lithium-ion",
-      chargeTime: "3.2 Hours (0-100%)",
+      speed: "25 km/h (CMVR License-Exempt)",
+      license: "No License Required (0 RTO Needed)",
+      motor: "250W High-Efficiency BLDC Hub Motor",
+      battery: "1.9 kWh Portable Lithium-ion (Detachable)",
+      chargeTime: "3.2 Hours (0-100% on 5A socket)",
       brakes: "Front Disc / Rear Drum + CBS",
       suspension: "Telescopic Hydraulic",
       bootSpace: "20 Litres",
-      weight: "78 kg",
+      weight: "72 kg",
       warranty: "3 Years / 50,000 km"
     },
     "tepito-pro": {
-      tag: "High Performance",
-      price: "₹ 89,999*",
+      tag: "🚀 High Performance City Explorer",
+      price: "₹ 84,999*",
       range: "120 km (Certified)",
       speed: "75 km/h",
+      license: "Standard 2-Wheeler License (RTO)",
       motor: "2.5 kW High-Torque BLDC Motor",
       battery: "2.9 kWh Portable Smart Li-ion",
       chargeTime: "3.0 Hours (0-100%)",
@@ -41,10 +43,11 @@ export default function SpecsModal({ isOpen, onClose, scooter }) {
       warranty: "3 Years / 50,000 km"
     },
     "tepito-max": {
-      tag: "Long Range Explorer",
-      price: "₹ 1,09,999*",
+      tag: "⭐ Ultra Long Range Touring",
+      price: "₹ 1,04,999*",
       range: "150 km (Certified)",
       speed: "85 km/h",
+      license: "Standard 2-Wheeler License (RTO)",
       motor: "3.2 kW Peak Ultra BLDC Motor",
       battery: "3.6 kWh Advanced Smart Pack",
       chargeTime: "2.5 Hours Fast Charge",
@@ -102,6 +105,10 @@ export default function SpecsModal({ isOpen, onClose, scooter }) {
           {/* Right: Technical Specs Table */}
           <div className="specs-modal-table-wrap">
             <div className="specs-table-grid">
+              <div className="spec-table-row" style={{ backgroundColor: "#f0fdf4", border: "1px solid #86efac", borderRadius: "8px", padding: "0.45rem 0.75rem" }}>
+                <span className="spec-name" style={{ color: "#166534", fontWeight: 700 }}>📋 License Status</span>
+                <span className="spec-data" style={{ color: "#15803d", fontWeight: 800 }}>{details.license}</span>
+              </div>
               <div className="spec-table-row">
                 <span className="spec-name">⚡ Certified Range</span>
                 <span className="spec-data"><strong>{details.range}</strong></span>

@@ -12,6 +12,7 @@ import VideoModal from "./components/VideoModal.jsx";
 import SpecsModal from "./components/SpecsModal.jsx";
 import LegalModal from "./components/LegalModal.jsx";
 import WhatsAppButton from "./components/WhatsAppButton.jsx";
+import ScrollProgressBar from "./components/ScrollProgressBar.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -63,6 +64,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollProgressBar />
       <ScrollToTop />
       <Header />
       <main>

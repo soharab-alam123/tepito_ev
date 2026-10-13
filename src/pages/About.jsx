@@ -61,23 +61,23 @@ const whyUsFeatures = [
 const milestones = [
   {
     year: "2022",
-    title: "The Inception",
-    desc: "TEPITO EV was incorporated in Lucknow, Uttar Pradesh (CIN: U47912UP2022PTC173748) with a bold mission: accessible electric mobility for everyday Indians."
+    title: "Official Incorporation",
+    desc: "TEPITO EV was incorporated in Lucknow, Uttar Pradesh (CIN: U47912UP2022PTC173748 • GSTIN: 09AAQCM3723K1ZZ • PAN: AAQCM3723K) with a bold mission: accessible, high-efficiency electric mobility for everyday Indians."
   },
   {
     year: "2023",
     title: "R&D & Stress Testing",
-    desc: "Over 50,000 km of rigorous road testing across Uttar Pradesh weather extremes, fine-tuning regenerative braking and battery thermal management."
+    desc: "Over 50,000 km of rigorous road testing across Uttar Pradesh weather extremes, perfecting portable fast-charging batteries and license-free low-speed compliance."
   },
   {
     year: "2024",
-    title: "Flagship Showroom Launch",
-    desc: "Opened our premier customer experience and service center at Patanala Chowk, Lucknow, delivering direct sales, test rides, and seamless warranty support."
+    title: "Dual Lucknow Centers Launch",
+    desc: "Opened our premier customer experience hubs at Patanala Chowk (Registered Office) and Balaganj Campbell Road (Additional Service Hub) for direct sales, test rides, and warranty."
   },
   {
     year: "Today",
     title: "10,000+ Happy Riders",
-    desc: "Rapidly expanding community of daily commuters, students, and professionals saving over ₹30,000/year on fuel while preserving the environment."
+    desc: "Rapidly expanding community of daily commuters saving over ₹35,000/year on fuel while preserving the environment with zero emissions."
   }
 ];
 
@@ -453,17 +453,21 @@ export default function About() {
                 Experience TEPITO EV in Person
               </h2>
               <p className="showroom-invite-desc">
-                Visit our premier showroom and service center at Patanala Chowk, Chowk, Lucknow. Test ride our complete lineup, explore customizable colors, and experience the future of clean transportation.
+                Visit our customer experience and service centers in Lucknow. Test ride our complete lineup of No-License and Long-Range electric scooters, and discover zero-emission commuting.
               </p>
 
-              <div className="showroom-invite-details">
+              <div className="showroom-invite-details" style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 <div className="detail-item">
                   <MapPin size={18} className="text-green" />
-                  <span>Patanala Chowk, Chowk, Lucknow – 226003</span>
+                  <span><strong>Registered ®️ Office:</strong> H.N. 2358/38 Gali Shachhada, Patanala Chowk, Lucknow – 226003</span>
+                </div>
+                <div className="detail-item">
+                  <MapPin size={18} className="text-green" />
+                  <span><strong>Additional Office:</strong> 431/310 N Momin Nagar, Campbell Rd, Balaganj, Lucknow – 226003</span>
                 </div>
                 <div className="detail-item">
                   <Clock size={18} className="text-green" />
-                  <span>Mon – Sat: 10:00 AM – 8:00 PM</span>
+                  <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
                 </div>
               </div>
 

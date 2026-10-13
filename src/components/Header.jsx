@@ -195,6 +195,31 @@ export default function Header() {
               <span>Book a Test Ride</span>
               <span className="btn-arrow">→</span>
             </Link>
+
+            <a
+              href="https://tepito.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-ecommerce-link"
+              style={{
+                marginTop: "0.75rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem",
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                color: "#16a34a",
+                background: "#f0fdf4",
+                border: "1px solid #bbf7d0",
+                padding: "0.65rem",
+                borderRadius: "9999px",
+                textDecoration: "none"
+              }}
+            >
+              <span>🛍️ Visit E-Commerce Store (tepito.in)</span>
+              <span>↗</span>
+            </a>
           </div>
         </div>
       </div>

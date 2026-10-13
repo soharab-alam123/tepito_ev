@@ -18,8 +18,10 @@ export default function LegalModal({ isOpen, onClose, activeTab = "privacy" }) {
           <h3 className="modal-title" style={{ fontSize: "1.5rem" }}>
             {activeTab === "privacy" ? "Privacy & Data Protection Policy" : "Terms & Conditions of Service"}
           </h3>
-          <p style={{ color: "#64748b", fontSize: "0.82rem" }}>
-            TEPITO ELECTRIC MOBILITY SOLUTIONS • CIN: U47912UP2022PTC173748
+          <p style={{ color: "#64748b", fontSize: "0.82rem", lineHeight: 1.45 }}>
+            TEPITO ELECTRIC MOBILITY SOLUTIONS • CIN: U47912UP2022PTC173748 • GSTIN: 09AAQCM3723K1ZZ • PAN: AAQCM3723K
+            <br />
+            Registered Office: H.N. 2358/38 Gali Shachhada, Patanala Chowk, Lucknow, UP – 226003
           </p>
         </div>
 
@@ -43,9 +45,11 @@ export default function LegalModal({ isOpen, onClose, activeTab = "privacy" }) {
             </>
           ) : (
             <>
-              <h4 style={{ color: "#0f172a", marginTop: "0.5rem", marginBottom: "0.35rem" }}>1. Test Ride Eligibility</h4>
+              <h4 style={{ color: "#0f172a", marginTop: "0.5rem", marginBottom: "0.35rem" }}>1. Test Ride Eligibility & License Requirements</h4>
               <p>
-                Test ride participants must hold a valid Indian driving licence for two-wheelers and adhere to helmet safety protocols during the demonstration ride at our authorized Lucknow showroom or doorstep handover.
+                <strong>Low-Speed Commuter Series:</strong> No driving licence or RTO registration is required under Indian CMVR regulations (top speed capped at 25 km/h, motor output 250W). Riders aged 16+ are welcome.
+                <br />
+                <strong>High-Speed Models:</strong> Test ride participants must hold a valid two-wheeler driving licence. Helmet safety protocols apply to all test rides at our authorized Lucknow showroom or doorstep handover.
               </p>
 
               <h4 style={{ color: "#0f172a", marginTop: "1rem", marginBottom: "0.35rem" }}>2. Scooter Specifications & Range</h4>

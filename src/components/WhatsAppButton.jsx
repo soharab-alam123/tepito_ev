@@ -13,26 +13,7 @@ export default function WhatsAppButton() {
 
   return (
     <div className="whatsapp-floating-wrap">
-      {/* Floating Tooltip Pill */}
-      {showTooltip && (
-        <div className="whatsapp-tooltip-pill">
-          <span className="tooltip-text">
-            Need help? <strong>Chat with us</strong>
-          </span>
-          <button
-            type="button"
-            className="tooltip-close-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setShowTooltip(false);
-            }}
-            aria-label="Dismiss chat prompt"
-          >
-            <X size={13} />
-          </button>
-        </div>
-      )}
+
 
       {/* Main Floating Button */}
       <a

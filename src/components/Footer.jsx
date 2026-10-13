@@ -80,31 +80,54 @@ export default function Footer({ onOpenLegal }) {
           </ul>
         </div>
 
-        {/* Column 4: Contact Us */}
-        <div className="footer-col">
-          <h4 className="footer-heading">Contact Us</h4>
-          <ul className="footer-contact-list">
-            <li className="contact-item-address">
-              <MapPin size={18} className="footer-icon text-green" />
-              <a
-                href={MAP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-address-text"
-              >
-                H.No.2258-38 Gali Shaokhada,<br />
-                Patanala Chowk, Lucknow, UP - 226003
-              </a>
-            </li>
-            <li className="contact-item-phone">
-              <Phone size={18} className="footer-icon text-green" />
-              <a href="tel:+919876543210">+91 98765 43210</a>
-            </li>
-            <li className="contact-item-email">
-              <Mail size={18} className="footer-icon text-green" />
-              <a href="mailto:support@tepito.in">support@tepito.in</a>
-            </li>
-          </ul>
+        {/* Column 4: Contact & Office Locations */}
+        <div className="footer-col footer-col--offices">
+          <h4 className="footer-heading">Contact & Offices</h4>
+
+          {/* Quick Contact Links */}
+          <div className="footer-quick-contacts">
+            <a href="tel:+919876543210" className="footer-contact-pill">
+              <Phone size={14} className="text-green" />
+              <span>+91 98765 43210</span>
+            </a>
+            <a href="mailto:support@tepito.in" className="footer-contact-pill">
+              <Mail size={14} className="text-green" />
+              <span>support@tepito.in</span>
+            </a>
+          </div>
+
+          {/* Structured Office Cards */}
+          <div className="footer-offices-stack">
+            <a
+              href="https://www.google.com/maps/search/H.NO.+2358%2F38+GALI+SHACHHADA+PATANALA+CHOWK+LUCKNOW+UP+226003"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-office-card"
+            >
+              <div className="office-card-header">
+                <MapPin size={14} className="text-green" />
+                <span className="office-card-badge">Registered Office</span>
+              </div>
+              <p className="office-card-addr">
+                H.N. 2358/38 Gali Shachhada, Patanala Chowk, Lucknow (UP) 226003
+              </p>
+            </a>
+
+            <a
+              href="https://www.google.com/maps/search/431%2F310+N+Momin+Nagar+Newati+Tola+Campbell+Road+Balaganj+Lucknow+226003"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-office-card"
+            >
+              <div className="office-card-header">
+                <MapPin size={14} className="text-green" />
+                <span className="office-card-badge">Additional Office</span>
+              </div>
+              <p className="office-card-addr">
+                431/310 N Momin Nagar, Campbell Rd, Balaganj, Lucknow (UP) 226003
+              </p>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -115,9 +138,7 @@ export default function Footer({ onOpenLegal }) {
             <p className="copyright-text">
               © 2026 TEPITO EV. All rights reserved.
             </p>
-            <span className="footer-cin-badge">
-              CIN: U47912UP2022PTC173748 • Registered in Lucknow, Uttar Pradesh
-            </span>
+
           </div>
 
           <div className="footer-legal-links">
