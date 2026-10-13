@@ -1,10 +1,27 @@
 import { useState, useEffect } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import MagneticButton from "./MagneticButton.jsx";
 
-export default function Header({ onOpenTestRide }) {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle scroll detection for compact glass state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 25) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close mobile drawer on route navigation
   useEffect(() => {
@@ -25,7 +42,7 @@ export default function Header({ onOpenTestRide }) {
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}>
         <div className="container header-container">
           {/* Logo with official red Tepito brand mark */}
           <Link to="/" className="site-logo" aria-label="TEPITO EV Home">
@@ -81,14 +98,15 @@ export default function Header({ onOpenTestRide }) {
             </NavLink>
           </nav>
 
-          {/* Action CTA */}
+          {/* Action CTA with Magnetic Pull Physics */}
           <div className="header-actions">
-            <button
-              onClick={onOpenTestRide}
+            <MagneticButton
+              onClick={() => navigate("/contact")}
               className="btn-pill-green desktop-only-btn"
             >
-              Book a Test Ride
-            </button>
+              <span>Book a Test Ride</span>
+              <span className="btn-arrow">→</span>
+            </MagneticButton>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -96,7 +114,7 @@ export default function Header({ onOpenTestRide }) {
               onClick={() => setIsOpen(true)}
               aria-label="Open mobile navigation"
             >
-              <Menu size={26} color="#ffffff" />
+              <Menu size={26} />
             </button>
           </div>
         </div>
@@ -127,7 +145,7 @@ export default function Header({ onOpenTestRide }) {
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
-              <X size={26} color="#ffffff" />
+              <X size={26} />
             </button>
           </div>
 
@@ -168,15 +186,15 @@ export default function Header({ onOpenTestRide }) {
           </div>
 
           <div className="mobile-drawer__footer">
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                if (onOpenTestRide) onOpenTestRide();
-              }}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
               className="btn-pill-green btn-block"
+              style={{ textAlign: "center", display: "inline-flex", justifyContent: "center", alignItems: "center" }}
             >
-              Book a Test Ride
-            </button>
+              <span>Book a Test Ride</span>
+              <span className="btn-arrow">→</span>
+            </Link>
           </div>
         </div>
       </div>

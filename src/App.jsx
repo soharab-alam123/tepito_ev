@@ -1,13 +1,17 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
 import Contact from "./pages/Contact.jsx";
-import TestRideModal from "./components/TestRideModal.jsx";
+import PageTransition from "./components/PageTransition.jsx";
 import VideoModal from "./components/VideoModal.jsx";
+import SpecsModal from "./components/SpecsModal.jsx";
+import LegalModal from "./components/LegalModal.jsx";
+import WhatsAppButton from "./components/WhatsAppButton.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,18 +24,16 @@ function ScrollToTop() {
 }
 
 export default function App() {
-  const [isTestRideOpen, setIsTestRideOpen] = useState(false);
-  const [selectedModel, setSelectedModel] = useState("TEPITO PRO");
+  const location = useLocation();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  const handleOpenTestRide = (modelName = "TEPITO PRO") => {
-    setSelectedModel(modelName);
-    setIsTestRideOpen(true);
-  };
+  // Specs Modal State
+  const [isSpecsOpen, setIsSpecsOpen] = useState(false);
+  const [specsScooter, setSpecsScooter] = useState(null);
 
-  const handleCloseTestRide = () => {
-    setIsTestRideOpen(false);
-  };
+  // Legal Modal State (Privacy Policy / Terms)
+  const [isLegalOpen, setIsLegalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState("privacy");
 
   const handleOpenVideo = () => {
     setIsVideoOpen(true);
@@ -41,44 +43,84 @@ export default function App() {
     setIsVideoOpen(false);
   };
 
+  const handleOpenSpecs = (scooter) => {
+    setSpecsScooter(scooter);
+    setIsSpecsOpen(true);
+  };
+
+  const handleCloseSpecs = () => {
+    setIsSpecsOpen(false);
+  };
+
+  const handleOpenLegal = (tab = "privacy") => {
+    setLegalTab(tab);
+    setIsLegalOpen(true);
+  };
+
+  const handleCloseLegal = () => {
+    setIsLegalOpen(false);
+  };
+
   return (
     <>
       <ScrollToTop />
-      <Header onOpenTestRide={() => handleOpenTestRide("TEPITO PRO")} />
+      <Header />
       <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                onOpenTestRide={handleOpenTestRide}
-                onOpenVideo={handleOpenVideo}
-              />
-            }
-          />
-          <Route
-            path="/about"
-            element={<About onOpenTestRide={handleOpenTestRide} />}
-          />
-          <Route
-            path="/services"
-            element={<Services onOpenTestRide={handleOpenTestRide} />}
-          />
-          <Route
-            path="/contact"
-            element={<Contact onOpenTestRide={handleOpenTestRide} />}
-          />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route
+              path="/"
+              element={
+                <PageTransition>
+                  <Home
+                    onOpenVideo={handleOpenVideo}
+                    onOpenSpecs={handleOpenSpecs}
+                  />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PageTransition>
+                  <About />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <PageTransition>
+                  <Services />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <PageTransition>
+                  <Contact />
+                </PageTransition>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
       </main>
-      <Footer />
+      <Footer onOpenLegal={handleOpenLegal} />
 
-      {/* Global Modals */}
-      <TestRideModal
-        isOpen={isTestRideOpen}
-        onClose={handleCloseTestRide}
-        preselectedModel={selectedModel}
-      />
+      {/* Global Modals & Floating Tools */}
       <VideoModal isOpen={isVideoOpen} onClose={handleCloseVideo} />
+      <SpecsModal
+        isOpen={isSpecsOpen}
+        onClose={handleCloseSpecs}
+        scooter={specsScooter}
+      />
+      <LegalModal
+        isOpen={isLegalOpen}
+        onClose={handleCloseLegal}
+        activeTab={legalTab}
+      />
+      <WhatsAppButton />
     </>
   );
 }

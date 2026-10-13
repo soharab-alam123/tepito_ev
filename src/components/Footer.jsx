@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin
+} from "lucide-react";
 
-export default function Footer({ onOpenTestRide }) {
+export default function Footer({ onOpenLegal }) {
+  const MAP_URL = "https://www.google.com/maps/search/H.NO.+2358-38+GALI+SHACHHADA+PATANALA+CHOWK,+LUCKNOW,+UTTAR+PRADESH+%E2%80%93+226003/@26.8613744,80.8853119,13z";
+
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -18,23 +28,44 @@ export default function Footer({ onOpenTestRide }) {
                 TEPITO <span className="text-green">EV</span>
               </span>
               <span className="brand-subtitle">
-                Electric Mobility Solutions
+                ELECTRIC MOBILITY SOLUTIONS
               </span>
             </div>
           </Link>
           <p className="footer-description">
             Clean, silent, and sustainable electric scooters designed and engineered for Indian roads.
           </p>
+          <div className="footer-socials">
+            <a
+              href="https://www.facebook.com/share/19B1zwETyH/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="social-icon-btn"
+            >
+              <Facebook size={16} />
+            </a>
+            <a
+              href="https://www.instagram.com/tepito.in?utm_source=qr&igsi=ZHN6aWdzcmJ6bDE0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="social-icon-btn"
+            >
+              <Instagram size={16} />
+            </a>
+
+          </div>
         </div>
 
         {/* Column 2: Quick Links */}
         <div className="footer-col">
           <h4 className="footer-heading">Quick Links</h4>
           <ul className="footer-nav-list">
-            <li><Link to="/">Home & Models</Link></li>
-            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
             <li><Link to="/services">Services</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -45,26 +76,7 @@ export default function Footer({ onOpenTestRide }) {
             <li><Link to="/services">Warranty</Link></li>
             <li><Link to="/services">Battery & Maintenance</Link></li>
             <li><Link to="/contact">Service Request</Link></li>
-            <li>
-              {onOpenTestRide ? (
-                <button
-                  onClick={onOpenTestRide}
-                  style={{
-                    color: "inherit",
-                    background: "none",
-                    border: "none",
-                    padding: 0,
-                    font: "inherit",
-                    cursor: "pointer",
-                    textAlign: "left"
-                  }}
-                >
-                  Book Test Ride
-                </button>
-              ) : (
-                <Link to="/contact">Book Test Ride</Link>
-              )}
-            </li>
+            <li><Link to="/contact">Book Test Ride</Link></li>
           </ul>
         </div>
 
@@ -74,16 +86,14 @@ export default function Footer({ onOpenTestRide }) {
           <ul className="footer-contact-list">
             <li className="contact-item-address">
               <MapPin size={18} className="footer-icon text-green" />
-              <a 
-                href="https://www.google.com/maps/search/H.NO.+2358-38+GALI+SHACHHADA+PATANALA+CHOWK,+LUCKNOW,+UTTAR+PRADESH+%E2%80%93+226003/@26.8613744,80.8853119,13z/data=!3m1!4b1?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D"
+              <a
+                href={MAP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-address-text"
-                style={{ color: "var(--text-secondary)", textDecoration: "none", lineHeight: 1.5 }}
               >
-                H.No. 2358–38 Gali Shachhada,<br />
-                Patanala Chowk,<br />
-                Lucknow, UP – 226003
+                H.No.2258-38 Gali Shaokhada,<br />
+                Patanala Chowk, Lucknow, UP - 226003
               </a>
             </li>
             <li className="contact-item-phone">
@@ -98,19 +108,35 @@ export default function Footer({ onOpenTestRide }) {
         </div>
       </div>
 
-      {/* Footer Bottom Strip */}
+      {/* Footer Bottom Strip with Corporate CIN & Legal Modals */}
       <div className="footer-bottom">
         <div className="container footer-bottom__inner">
-          <p className="copyright-text">
-            © 2026 TEPITO. All rights reserved.
-          </p>
-          {/* <div className="footer-legal-links">
-            <Link to="/privacy-policy">Privacy</Link>
+          <div className="copyright-group">
+            <p className="copyright-text">
+              © 2026 TEPITO EV. All rights reserved.
+            </p>
+            <span className="footer-cin-badge">
+              CIN: U47912UP2022PTC173748 • Registered in Lucknow, Uttar Pradesh
+            </span>
+          </div>
+
+          <div className="footer-legal-links">
+            <button
+              type="button"
+              onClick={() => onOpenLegal && onOpenLegal("privacy")}
+              className="footer-legal-btn"
+            >
+              Privacy Policy
+            </button>
             <span className="divider">|</span>
-            <Link to="/terms-conditions">Terms</Link>
-            <span className="divider">|</span>
-            <Link to="/contact">Support</Link>
-          </div> */}
+            <button
+              type="button"
+              onClick={() => onOpenLegal && onOpenLegal("terms")}
+              className="footer-legal-btn"
+            >
+              Terms & Conditions
+            </button>
+          </div>
         </div>
       </div>
     </footer>
